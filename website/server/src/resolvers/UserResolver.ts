@@ -295,4 +295,20 @@ export class UserResolver {
       user
     };
   }
+
+  @Mutation(() => Boolean)
+  async logout(@Ctx() { res }: MyContext) {
+    sendRefreshToken(res, "");
+    
+    return true;
+  }
+
+  @Mutation(() => Boolean)
+  async revokeRefreshTokensForUser(@Arg("username", () => String) username: string) {
+    await getConnection()
+      .getRepository(User)
+      .increment({ username: username }, "tokenVersion", 1);
+
+    return true;
+  }
 }
