@@ -5,6 +5,14 @@ html {
   color: #fff;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
 div.container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -27,6 +35,41 @@ div.site-title {
   font-size: 32px;
   text-transform: lowercase;
   margin-bottom: 20px;
+}
+
+div.authentication-form {
+  display: block;
+}
+
+input[type="text"],input[type="email"], input[type="password"] {
+  display: block;
+  width: 100%;
+  background-color: #232730;
+  border-radius: 12px;
+  font-family: inherit;
+  font-weight: 400;
+  color: #a9acb1;
+  font-size: inherit;
+  padding: 10px 20px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+button {
+  display: block;
+  background-color: #232730;
+  border-radius: 12px;
+  font-family: inherit;
+  font-weight: 700;
+  color: #fff;
+  font-size: inherit;
+  padding: 12.5px 25px;
+  border: none;
+  cursor: pointer;
+}
+
+button.login {
+  background-color: #039be5;
 }
 
 footer {

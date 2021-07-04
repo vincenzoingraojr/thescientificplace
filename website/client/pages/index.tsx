@@ -1,6 +1,14 @@
-import Head from 'next/head'
+import { useRouter } from 'next/dist/client/router';
+import Head from 'next/head';
+import { useState } from 'react';
+import { useLoginMutation } from '../generated/graphql'
 
-export default function Home() {
+export default function Index() {
+  const router = useRouter();
+  const [login] = useLoginMutation();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <>
       <Head>
@@ -18,7 +26,15 @@ export default function Home() {
         </div>
         <div className="container-item">
           <div className="authentication-form">
-            Login form
+            <form>
+              <input type="text" value={username} placeholder="Username" onChange={e => {
+                setUsername(e.target.value);
+              }}/>
+              <input type="password" value={password} placeholder="Password" onChange={e => {
+                setPassword(e.target.value);
+              }}/>
+              <button className="login" type="submit">Log in</button>
+            </form>
           </div>
         </div>
       </div>
