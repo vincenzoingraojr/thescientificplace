@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RouteComponentProps } from "react-router";
 import { useLoginMutation, MeDocument, MeQuery, useMeQuery } from "../generated/graphql";
 import { setAccessToken } from "../accessToken";
+import { Head } from "../components/Head";
 
 export const Authentication: React.FC<RouteComponentProps> = ({ history }) => {
   const [login] = useLoginMutation();
@@ -16,6 +17,7 @@ export const Authentication: React.FC<RouteComponentProps> = ({ history }) => {
 
   return (
     <div className="container">
+      <Head title="The Scientific Place" />
       <div className="container-item">
         <div className="site-title">The Scientific Place</div>
         <div>

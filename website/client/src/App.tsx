@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { setAccessToken } from './accessToken';
 import { Routes } from './Routes';
 
-interface Props {}
-
-export const App: React.FC<Props> = () => {
+export const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
