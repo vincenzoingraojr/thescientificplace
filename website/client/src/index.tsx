@@ -1,7 +1,11 @@
-import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, Observable } from "@apollo/client";
-import { TokenRefreshLink } from "apollo-link-token-refresh";
-import jwtDecode from "jwt-decode";
-import { getAccessToken, setAccessToken } from "./accessToken";
+import ReactDOM from 'react-dom';
+import './index.css';
+import './style.css';
+import { ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache, Observable } from '@apollo/client';
+import { getAccessToken, setAccessToken } from './accessToken';
+import { TokenRefreshLink } from 'apollo-link-token-refresh';
+import jwtDecode from 'jwt-decode';
+import { App } from './App';
 
 const cache = new InMemoryCache({});
 
@@ -80,4 +84,9 @@ const client = new ApolloClient({
   cache
 });
 
-export default client;
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
+  document.getElementById('root')
+);

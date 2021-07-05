@@ -7,12 +7,12 @@ Folder | Description
 --- | ---
 [app](/app/tsp) | React Native App
 [files](/files) | Project files
-[website/client](/website/client) | Next.js front-end
+[website/client](/website/client) | React.js front-end
 [website/server](/website/server) | Express server
 
 ## What is The Scientific Place?
 The Scientific Place is a social network dedicated to scientists and those who love science.
-The platform is still in the early stages of development, but in the current plan its final version will include an app for Android and iOS (using React Native), desktop apps for Windows, macOS and Linux (using Electron), and of course a web app (built with Next.js).
+The platform is still in the early stages of development, but in the current plan its final version will include an app for Android and iOS (using React Native), desktop apps for Windows, macOS and Linux (using Electron), and of course a web app (built with React.js).
 The idea is the development of a social network that allows users to share research papers, graphs and opinions regarding the various disciplines of science.
 
 ## Contributions

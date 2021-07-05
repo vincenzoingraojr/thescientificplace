@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 html {
-  font-family: "Inter";
+  font-family: 'Inter', sans-serif;
   background-color: #0b0f10;
   font-size: 18px;
   color: #fff;
@@ -18,6 +20,14 @@ div.container {
   grid-template-columns: repeat(2, 1fr);
   grid-row-gap: 20px;
   grid-column-gap: 20px;
+  margin-top: 140px;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-bottom: 40px;
+}
+
+div.page-container {
+  display: block;
   margin-top: 140px;
   margin-left: 20%;
   margin-right: 20%;
@@ -70,6 +80,11 @@ button {
 
 button.login {
   background-color: #039be5;
+}
+
+button.logout {
+  margin-top: 20px;
+  background-color: red;
 }
 
 footer {
