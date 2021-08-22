@@ -17,8 +17,8 @@ type Mutation {
   createDraft(data: PostCreateInput!): Post
   deletePost(id: Int!): Post
   incrementPostViewCount(id: Int!): Post
-  login(email: String!, password: String!): AuthPayload
-  signup(email: String!, name: String, password: String!): AuthPayload
+  login(password: String!, username: String!): AuthPayload
+  signup(email: String!, name: String, password: String!, username: String!): AuthPayload
   togglePublishPost(id: Int!): Post
 }
 
@@ -67,15 +67,18 @@ type User {
   name: String
   posts: [Post!]!
   profile: Profile
+  username: String!
 }
 
 input UserCreateInput {
   email: String!
   name: String
   posts: [PostCreateInput!]
+  username: String!
 }
 
 input UserUniqueInput {
   email: String
   id: Int
+  username: String
 }

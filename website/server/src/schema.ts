@@ -99,6 +99,7 @@ const Query = objectType({
           .findUnique({
             where: {
               id: args.userUniqueInput.id || undefined,
+              username: args.userUniqueInput.username || undefined,
               email: args.userUniqueInput.email || undefined,
             },
           })
@@ -120,6 +121,7 @@ const Mutation = objectType({
       args: {
         name: stringArg(),
         email: nonNull(stringArg()),
+        username: nonNull(stringArg()),
         password: nonNull(stringArg()),
       },
       resolve: async (_parent, args, context: Context) => {
@@ -128,6 +130,7 @@ const Mutation = objectType({
           data: {
             name: args.name,
             email: args.email,
+            username: args.username,
             password: hashedPassword,
           },
         })
@@ -141,17 +144,17 @@ const Mutation = objectType({
     t.field('login', {
       type: 'AuthPayload',
       args: {
-        email: nonNull(stringArg()),
+        username: nonNull(stringArg()),
         password: nonNull(stringArg()),
       },
-      resolve: async (_parent, { email, password }, context: Context) => {
+      resolve: async (_parent, { username, password }, context: Context) => {
         const user = await context.prisma.user.findUnique({
           where: {
-            email,
+            username,
           },
         })
         if (!user) {
-          throw new Error(`No user found for email: ${email}`)
+          throw new Error(`No user found for username: ${username}`)
         }
         const passwordValid = await compare(password, user.password)
         if (!passwordValid) {
@@ -256,6 +259,7 @@ const Mutation = objectType({
             user: {
               connect: {
                 id: args.UserUniqueInput.id || undefined,
+                username: args.UserUniqueInput.username || undefined,
                 email: args.UserUniqueInput.email || undefined,
               }
             }
@@ -289,6 +293,7 @@ const User = objectType({
   definition(t) {
     t.nonNull.int('id')
     t.string('name')
+    t.nonNull.string('username')
     t.nonNull.string('email')
     t.nonNull.list.nonNull.field('posts', {
       type: 'Post',
@@ -351,6 +356,7 @@ const UserUniqueInput = inputObjectType({
   definition(t) {
     t.int('id')
     t.string('email')
+    t.string('username')
   },
 })
 
@@ -366,6 +372,7 @@ const UserCreateInput = inputObjectType({
   name: 'UserCreateInput',
   definition(t) {
     t.nonNull.string('email')
+    t.nonNull.string('username')
     t.string('name')
     t.list.nonNull.field('posts', { type: 'PostCreateInput' })
   },
