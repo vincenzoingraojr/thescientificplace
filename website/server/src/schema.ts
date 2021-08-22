@@ -238,6 +238,49 @@ const Mutation = objectType({
         })
       },
     })
+
+    t.field('addProfileForUser', {
+      type: 'Profile',
+      args: {
+        UserUniqueInput: nonNull(
+          arg({
+            type: 'UserUniqueInput',
+          }),
+        ),
+        bio: stringArg()
+      },
+      resolve: async (_, args, context) => {
+        return context.prisma.profile.create({
+          data: {
+            bio: args.bio,
+            user: {
+              connect: {
+                id: args.UserUniqueInput.id || undefined,
+                email: args.UserUniqueInput.email || undefined,
+              }
+            }
+          }
+        })
+      }
+    })
+  },
+})
+
+const Profile = objectType({
+  name: 'Profile',
+  definition(t) {
+    t.nonNull.int('id')
+    t.string('bio')
+    t.field('user', {
+      type: 'User',
+      resolve: (parent, _, context) => {
+        return context.prisma.profile
+          .findUnique({
+            where: { id: parent.id || undefined },
+          })
+          .user()
+      },
+    })
   },
 })
 
@@ -256,6 +299,14 @@ const User = objectType({
           })
           .posts()
       },
+    })
+    t.field('profile', {
+      type: 'Profile',
+      resolve: (parent, _, context) => {
+        return context.prisma.user.findUnique({
+          where: { id: parent.id }
+        }).profile()
+      }
     })
   },
 })
@@ -334,6 +385,7 @@ const schemaWithoutPermissions = makeSchema({
     Mutation,
     Post,
     User,
+    Profile,
     AuthPayload,
     UserUniqueInput,
     UserCreateInput,

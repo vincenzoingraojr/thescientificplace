@@ -13,6 +13,7 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 scalar DateTime
 
 type Mutation {
+  addProfileForUser(UserUniqueInput: UserUniqueInput!, bio: String): Profile
   createDraft(data: PostCreateInput!): Post
   deletePost(id: Int!): Post
   incrementPostViewCount(id: Int!): Post
@@ -41,6 +42,12 @@ input PostOrderByUpdatedAtInput {
   updatedAt: SortOrder!
 }
 
+type Profile {
+  bio: String
+  id: Int!
+  user: User
+}
+
 type Query {
   allUsers: [User!]!
   draftsByUser(userUniqueInput: UserUniqueInput!): [Post]
@@ -59,6 +66,7 @@ type User {
   id: Int!
   name: String
   posts: [Post!]!
+  profile: Profile
 }
 
 input UserCreateInput {
