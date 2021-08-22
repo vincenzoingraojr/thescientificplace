@@ -5,10 +5,9 @@ You can visit the website [here](https://thescientificplace.com).
 ## Structure
 Folder | Description
 --- | ---
-[app](/app/tsp) | React Native App
 [files](/files) | Project files
 [website/client](/website/client) | React.js front-end
-[website/server](/website/server) | Express server
+[website/server](/website/server) | Prisma back-end
 
 ## What is The Scientific Place?
 The Scientific Place is a social network dedicated to scientists and those who love science.
