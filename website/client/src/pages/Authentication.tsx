@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
-
 function Authentication() {
     return (
-        <div>
-            Authentication.
-            <Link className="block" to="/home">Go Home</Link>
+        <div className="auth-container">
+            <div className="container-item">
+                <div className="site-title">
+                    The Scientific Place
+                </div>
+                <div>
+                    This is a place where scientists and science lovers can share ideas, research papers and projects.
+                </div>
+            </div>
         </div>
     );
 }

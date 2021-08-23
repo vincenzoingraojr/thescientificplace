@@ -21,6 +21,25 @@ a {
     text-decoration: underline;
 }
 
-a.block {
+div.auth-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    margin-top: 140px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-bottom: 40px;
+}
+
+div.container-item {
     display: block;
+}
+
+div.site-title {
+    font-weight: 700;
+    color: #039be5;
+    font-size: 32px;
+    text-transform: lowercase;
+    margin-bottom: 20px;
 }
