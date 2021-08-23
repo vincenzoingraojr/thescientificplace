@@ -14,3 +14,13 @@ html {
 *:focus {
     outline: none;
 }
+
+a {
+    font-weight: 700;
+    color: #fff;
+    text-decoration: underline;
+}
+
+a.block {
+    display: block;
+}
