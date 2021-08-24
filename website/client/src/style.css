@@ -43,3 +43,12 @@ div.site-title {
     text-transform: lowercase;
     margin-bottom: 20px;
 }
+
+footer {
+    display: block;
+    margin-top: 0px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-bottom: 40px;
+    font-size: 14px;
+}
