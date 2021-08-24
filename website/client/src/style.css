@@ -24,8 +24,8 @@ a {
 div.auth-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: 20px;
-    grid-column-gap: 20px;
+    grid-row-gap: 24px;
+    grid-column-gap: 24px;
     margin-top: 140px;
     margin-left: 20%;
     margin-right: 20%;
@@ -41,7 +41,7 @@ div.site-title {
     color: #039be5;
     font-size: 32px;
     text-transform: lowercase;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 footer {
@@ -51,4 +51,99 @@ footer {
     margin-right: 20%;
     padding-bottom: 40px;
     font-size: 14px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    display: block;
+    width: 100%;
+    background-color: #232730;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 400;
+    color: #a9acb1;
+    font-size: inherit;
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 24px;
+}
+
+button {
+    display: block;
+    background-color: #232730;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 700;
+    color: #fff;
+    font-size: inherit;
+    padding: 12.5px 25px;
+    border: none;
+    cursor: pointer;
+}
+
+button.login {
+    background-color: #039be5;
+}
+
+button.logout {
+    background-color: red;
+}
+
+button.signup {
+    background-color: #005680;
+}
+
+div.line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #232730;
+    margin-bottom: 24px;
+}
+
+form.login-form {
+    display: block;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 500px) {
+    div.auth-container {
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 40px;
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    footer {
+        margin-top: 0px;
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 750px) {
+    div.auth-container {
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 40px;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    footer {
+        margin-top: 0px;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 1000px) {
+    div.auth-container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    footer {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
