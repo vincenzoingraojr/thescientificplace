@@ -6,7 +6,6 @@ function Authentication() {
     const [login] = useLoginMutation();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    
     return (
         <>
             <div className="auth-container">

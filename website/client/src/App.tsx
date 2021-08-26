@@ -23,7 +23,7 @@ function App() {
       <div>Loading...</div>
     );
   }
-  
+
   return (
     <>
       <BrowserRouter>
