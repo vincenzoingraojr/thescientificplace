@@ -1,5 +1,7 @@
+.idea/
+.vscode/
 node_modules/
-dist/
-src/generated/
-*.env*
-*.db
+build/
+tmp/
+temp/
+.env

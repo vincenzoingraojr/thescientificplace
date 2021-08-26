@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { setAccessToken } from "../accessToken";
+import { MeDocument, MeQuery, useLoginMutation } from "../generated/graphql";
 
 function Authentication() {
+    const [login] = useLoginMutation();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     
@@ -18,6 +21,31 @@ function Authentication() {
                 <div className="container-item">
                     <form 
                         className="login-form"
+                        onSubmit={async e => {
+                            e.preventDefault();
+                            const response = await login({
+                                variables: {
+                                    username,
+                                    password
+                                },
+                                update: (store, { data }) => {
+                                    if (!data) {
+                                      return null;
+                                    }
+                        
+                                    store.writeQuery<MeQuery>({
+                                        query: MeDocument,
+                                        data: {
+                                            me: data.login.user as any
+                                        }
+                                    });
+                                }
+                            });
+                            
+                            if (response && response.data) {
+                                setAccessToken(response.data.login.accessToken!);
+                            }
+                        }}
                     >
                         <input type="text" placeholder="Username" value={username} onChange={e => {
                             setUsername(e.target.value);
