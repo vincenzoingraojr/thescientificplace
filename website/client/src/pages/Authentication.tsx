@@ -1,11 +1,64 @@
 import { useState } from "react";
 import { setAccessToken } from "../accessToken";
-import { MeDocument, MeQuery, useLoginMutation } from "../generated/graphql";
+import { Modal } from "../components/modal/Modal";
+import { useModal } from "../components/modal/useModal";
+import { MeDocument, MeQuery, useLoginMutation, useSignupMutation } from "../generated/graphql";
 
 function Authentication() {
     const [login] = useLoginMutation();
+    const [signup] = useSignupMutation();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    const { isShown, toggle } = useModal();
+
+    const SignUp = (
+        <form 
+            className="signup-form"
+            onSubmit={async e => {
+                e.preventDefault();
+                const response = await signup({
+                    variables: {
+                        birthYear,
+                        birthMonth,
+                        birthDay,
+                        gender,
+                        title,
+                        password,
+                        lastName,
+                        firstName,
+                        username,
+                        email,
+                    },
+                    update: (store, { data }) => {
+                        if (!data) {
+                            return null;
+                        }
+            
+                        store.writeQuery<MeQuery>({
+                            query: MeDocument,
+                            data: {
+                                me: data.signup.user as any
+                            }
+                        });
+                    }
+                });
+                
+                if (response && response.data) {
+                    setAccessToken(response.data.signup.accessToken!);
+                }
+            }}
+        >
+            <input type="text" placeholder="Username" value={username} onChange={e => {
+                setUsername(e.target.value);
+            }} />
+            <input type="password" placeholder="Password" value={password} onChange={e => {
+                setPassword(e.target.value);
+            }} />
+            <button className="signup" type="submit">Sign up</button>
+        </form>
+    );
+
     return (
         <>
             <div className="auth-container">
@@ -55,7 +108,8 @@ function Authentication() {
                         <button className="login" type="submit">Log in</button>
                     </form>
                     <div className="line"></div>
-                    <button className="signup">Sign up</button>
+                    <button className="signup" onClick={toggle}>Sign up</button>
+                    <Modal isShown={isShown} hide={toggle} headerText="Sign up" modalContent={SignUp} />
                 </div>
             </div>
             <footer>
