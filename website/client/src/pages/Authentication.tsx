@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 function Authentication() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    
     return (
         <>
             <div className="auth-container">
@@ -11,9 +16,15 @@ function Authentication() {
                     </div>
                 </div>
                 <div className="container-item">
-                    <form className="login-form">
-                        <input type="text" placeholder="Username" />
-                        <input type="password" placeholder="Password" />
+                    <form 
+                        className="login-form"
+                    >
+                        <input type="text" placeholder="Username" value={username} onChange={e => {
+                            setUsername(e.target.value);
+                        }} />
+                        <input type="password" placeholder="Password" value={password} onChange={e => {
+                            setPassword(e.target.value);
+                        }} />
                         <button className="login" type="submit">Log in</button>
                     </form>
                     <div className="line"></div>
