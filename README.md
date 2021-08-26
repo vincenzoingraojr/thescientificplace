@@ -7,7 +7,7 @@ Folder | Description
 --- | ---
 [files](/files) | Project files
 [website/client](/website/client) | React.js front-end
-[website/server](/website/server) | Prisma back-end
+[website/server](/website/server) | Express back-end
 
 ## What is The Scientific Place?
 The Scientific Place is a social network dedicated to scientists and those who love science.
