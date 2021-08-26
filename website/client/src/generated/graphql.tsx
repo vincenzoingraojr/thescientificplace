@@ -50,7 +50,7 @@ export type MutationSignupArgs = {
 
 
 export type MutationRevokeRefreshTokensForUserArgs = {
-  username: Scalars['String'];
+  id: Scalars['Float'];
 };
 
 export type Query = {

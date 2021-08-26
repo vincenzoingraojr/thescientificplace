@@ -40,7 +40,7 @@ import { verify } from "jsonwebtoken";
       return res.send({ ok: false, accessToken: "" });
     }
     
-    const user = await User.findOne({ username: payload.username });
+    const user = await User.findOne({ id: payload.id });
     
     if (!user) {
       return res.send({ ok: false, accessToken: "" });

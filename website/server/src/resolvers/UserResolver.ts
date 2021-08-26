@@ -41,7 +41,7 @@ export class UserResolver {
     try {
       const token = authorization.split(" ")[1];
       const payload: any = verify(token, process.env.ACCESS_TOKEN_SECRET!);
-      return User.findOne({ where: { username: payload.username } });
+      return User.findOne({ where: { id: payload.id } });
     } catch (error) {
       console.error(error);
       return null;
@@ -304,10 +304,10 @@ export class UserResolver {
   }
 
   @Mutation(() => Boolean)
-  async revokeRefreshTokensForUser(@Arg("username", () => String) username: string) {
+  async revokeRefreshTokensForUser(@Arg("id", () => Number) id: number) {
     await getConnection()
       .getRepository(User)
-      .increment({ username: username }, "tokenVersion", 1);
+      .increment({ id: id }, "tokenVersion", 1);
 
     return true;
   }
