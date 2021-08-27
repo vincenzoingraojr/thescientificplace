@@ -56,13 +56,14 @@ function Authentication() {
             }}
         >
             <div className="margin-bottom-24">
-                Join The Scientific Place. It's easy!
+                Join The Scientific Place by filling out the form below.
             </div>
-            <div className="margin-bottom-24">
+            <label htmlFor="birthdate-picker">
                 Please enter your date of birth:
-            </div>
+            </label>
             <DatePicker 
-                className="margin-bottom-24"
+                id="birthdate-picker"
+                className="margin-top-6 margin-bottom-24"
                 selected={birthDate}
                 onChange={(date) => setBirthDate(date as Date)}
                 peekNextMonth
