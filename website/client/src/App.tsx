@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     fetch("http://localhost:4000/", {
       method: "POST",
