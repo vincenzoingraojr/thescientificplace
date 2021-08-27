@@ -56,7 +56,7 @@ function Authentication() {
             }}
         >
             <div className="margin-bottom-24">
-                Join The Scientific Place by filling out the form below.
+                Join <b>The Scientific Place</b> by filling out the form below.
             </div>
             <label htmlFor="birthdate-picker">
                 Please enter your date of birth:
