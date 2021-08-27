@@ -1,7 +1,5 @@
 mutation Signup(
-    $birthYear: String!,
-    $birthMonth: String!,
-    $birthDay: String!,
+    $birthDate: DateTime!,
     $gender: String!,
     $title: String!,
     $password: String!,
@@ -11,9 +9,7 @@ mutation Signup(
     $email: String!
 ) {
     signup(
-        birthYear: $birthYear,
-        birthMonth: $birthMonth,
-        birthDay: $birthDay,
+        birthDate: $birthDate,
         gender: $gender,
         title: $title,
         password: $password,

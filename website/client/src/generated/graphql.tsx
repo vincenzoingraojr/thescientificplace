@@ -12,7 +12,10 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
+  DateTime: any;
 };
+
 
 export type FieldError = {
   __typename?: 'FieldError';
@@ -36,9 +39,7 @@ export type MutationLoginArgs = {
 
 
 export type MutationSignupArgs = {
-  birthYear: Scalars['String'];
-  birthMonth: Scalars['String'];
-  birthDay: Scalars['String'];
+  birthDate: Scalars['DateTime'];
   gender: Scalars['String'];
   title: Scalars['String'];
   password: Scalars['String'];
@@ -96,9 +97,7 @@ export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 export type MeQuery = { __typename?: 'Query', me?: Maybe<{ __typename?: 'User', username: string, firstName: string, lastName: string, email: string, id: number, birthDate: string, gender: string, title: string }> };
 
 export type SignupMutationVariables = Exact<{
-  birthYear: Scalars['String'];
-  birthMonth: Scalars['String'];
-  birthDay: Scalars['String'];
+  birthDate: Scalars['DateTime'];
   gender: Scalars['String'];
   title: Scalars['String'];
   password: Scalars['String'];
@@ -232,11 +231,9 @@ export type MeQueryHookResult = ReturnType<typeof useMeQuery>;
 export type MeLazyQueryHookResult = ReturnType<typeof useMeLazyQuery>;
 export type MeQueryResult = Apollo.QueryResult<MeQuery, MeQueryVariables>;
 export const SignupDocument = gql`
-    mutation Signup($birthYear: String!, $birthMonth: String!, $birthDay: String!, $gender: String!, $title: String!, $password: String!, $lastName: String!, $firstName: String!, $username: String!, $email: String!) {
+    mutation Signup($birthDate: DateTime!, $gender: String!, $title: String!, $password: String!, $lastName: String!, $firstName: String!, $username: String!, $email: String!) {
   signup(
-    birthYear: $birthYear
-    birthMonth: $birthMonth
-    birthDay: $birthDay
+    birthDate: $birthDate
     gender: $gender
     title: $title
     password: $password
@@ -278,9 +275,7 @@ export type SignupMutationFn = Apollo.MutationFunction<SignupMutation, SignupMut
  * @example
  * const [signupMutation, { data, loading, error }] = useSignupMutation({
  *   variables: {
- *      birthYear: // value for 'birthYear'
- *      birthMonth: // value for 'birthMonth'
- *      birthDay: // value for 'birthDay'
+ *      birthDate: // value for 'birthDate'
  *      gender: // value for 'gender'
  *      title: // value for 'title'
  *      password: // value for 'password'

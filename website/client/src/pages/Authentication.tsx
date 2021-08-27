@@ -3,12 +3,20 @@ import { setAccessToken } from "../accessToken";
 import { Modal } from "../components/modal/Modal";
 import { useModal } from "../components/modal/useModal";
 import { MeDocument, MeQuery, useLoginMutation, useSignupMutation } from "../generated/graphql";
+import DatePicker from "react-datepicker";
 
 function Authentication() {
     const [login] = useLoginMutation();
     const [signup] = useSignupMutation();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [title, setTitle] = useState("");
+    const [gender, setGender] = useState("");
+    const [birthDate, setBirthDate] = useState(new Date());
 
     const { isShown, toggle } = useModal();
 
@@ -19,9 +27,7 @@ function Authentication() {
                 e.preventDefault();
                 const response = await signup({
                     variables: {
-                        birthYear,
-                        birthMonth,
-                        birthDay,
+                        birthDate,
                         gender,
                         title,
                         password,
@@ -49,10 +55,68 @@ function Authentication() {
                 }
             }}
         >
-            <input type="text" placeholder="Username" value={username} onChange={e => {
+            <div className="margin-bottom-24">
+                Join The Scientific Place. It's easy!
+            </div>
+            <div className="margin-bottom-24">
+                Please enter your date of birth:
+            </div>
+            <DatePicker 
+                className="margin-bottom-24"
+                selected={birthDate}
+                onChange={(date) => setBirthDate(date as Date)}
+                peekNextMonth
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+            />
+            <div className="input-grid margin-bottom-24">
+                <div className="input-grid-item">
+                    <select
+                        value={title}
+                        onChange={(e)=> {
+                            setTitle(e.target.value)
+                        }}
+                    >
+                        <option value="Title">Title</option>
+                        <option value="Ms.">Ms.</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Dr.">Dr.</option>
+                    </select>
+                </div>
+                <div className="input-grid-item">
+                    <select
+                        value={gender}
+                        onChange={(e)=> {
+                            setGender(e.target.value)
+                        }}
+                    >
+                        <option value="Gender">Gender</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div className="input-grid margin-bottom-24">
+                <div className="input-grid-item">
+                    <input type="text" placeholder="First name" value={firstName} onChange={e => {
+                        setFirstName(e.target.value);
+                    }} />
+                </div>
+                <div className="input-grid-item">
+                    <input type="text" placeholder="Last name" value={lastName} onChange={e => {
+                        setLastName(e.target.value);
+                    }} />
+                </div>
+            </div>
+            <input type="email" placeholder="Email" className="margin-bottom-24" value={email} onChange={e => {
+                setEmail(e.target.value);
+            }} />
+            <input type="text" placeholder="Username" className="margin-bottom-24" value={username} onChange={e => {
                 setUsername(e.target.value);
             }} />
-            <input type="password" placeholder="Password" value={password} onChange={e => {
+            <input type="password" placeholder="Password" className="margin-bottom-24" value={password} onChange={e => {
                 setPassword(e.target.value);
             }} />
             <button className="signup" type="submit">Sign up</button>
@@ -99,10 +163,10 @@ function Authentication() {
                             }
                         }}
                     >
-                        <input type="text" placeholder="Username" value={username} onChange={e => {
+                        <input type="text" placeholder="Username" className="margin-bottom-24" value={username} onChange={e => {
                             setUsername(e.target.value);
                         }} />
-                        <input type="password" placeholder="Password" value={password} onChange={e => {
+                        <input type="password" placeholder="Password" className="margin-bottom-24" value={password} onChange={e => {
                             setPassword(e.target.value);
                         }} />
                         <button className="login" type="submit">Log in</button>

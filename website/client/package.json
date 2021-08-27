@@ -16,6 +16,7 @@
     "graphql": "^15.5.1",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
+    "react-datepicker": "^4.2.1",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-modal": "^3.14.3",
@@ -56,6 +57,7 @@
     "@graphql-codegen/typescript-react-apollo": "3.1.2",
     "@types/react-helmet": "^6.1.2",
     "@types/react-modal": "^3.12.1",
-    "@types/react-router-dom": "^5.1.8"
+    "@types/react-router-dom": "^5.1.8",
+    "@types/react-datepicker": "^4.1.4"
   }
 }

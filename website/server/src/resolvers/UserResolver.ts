@@ -127,9 +127,7 @@ export class UserResolver {
     @Arg("password") password: string,
     @Arg("title") title: string,
     @Arg("gender") gender: string,
-    @Arg("birthDay") birthDay: string,
-    @Arg("birthMonth") birthMonth: string,
-    @Arg("birthYear") birthYear: string,
+    @Arg("birthDate") birthDate: Date,
     @Ctx() { res }: MyContext
   ): Promise<UserResponse> {
     if (!email.includes("@")) {
@@ -212,36 +210,6 @@ export class UserResolver {
         ]
       };
     }
-    if (birthDay == "Day") {
-      return {
-        errors: [
-          {
-            field: "gender",
-            message: "The \"day\" field cannot take this value"
-          }
-        ]
-      };
-    }
-    if (birthMonth == "Month") {
-      return {
-        errors: [
-          {
-            field: "gender",
-            message: "The \"month\" field cannot take this value"
-          }
-        ]
-      };
-    }
-    if (birthYear == "Year") {
-      return {
-        errors: [
-          {
-            field: "gender",
-            message: "The \"year\" field cannot take this value"
-          }
-        ]
-      };
-    }
 
     const hashedPassword = await argon2.hash(password);
 
@@ -259,7 +227,7 @@ export class UserResolver {
           lastName: lastName,
           title: title,
           gender: gender,
-          birthDate: birthMonth + " " + birthDay + ", " + birthYear,
+          birthDate: birthDate,
         })
         .returning("*")
         .execute();

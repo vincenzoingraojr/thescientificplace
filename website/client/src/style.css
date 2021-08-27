@@ -6,7 +6,6 @@ html {
     font-size: 18px;
     color: #fff;
 }
-
 * {
     box-sizing: border-box;
 }
@@ -53,7 +52,7 @@ footer {
     font-size: 14px;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], select {
     display: block;
     width: 100%;
     background-color: #232730;
@@ -64,7 +63,29 @@ input[type="text"], input[type="email"], input[type="password"] {
     font-size: inherit;
     padding: 10px 20px;
     border: none;
+}
+
+.margin-bottom-24 {
     margin-bottom: 24px;
+}
+
+select {
+    cursor: pointer;
+}
+
+select option {
+    font-family: inherit;
+}
+
+div.input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 24px;
+    grid-column-gap: 24px;
+}
+
+div.input-grid-item {
+    display: block;
 }
 
 button {
