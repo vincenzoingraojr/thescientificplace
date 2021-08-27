@@ -8,6 +8,8 @@ import jwtDecode, { JwtPayload } from 'jwt-decode';
 import { TokenRefreshLink } from 'apollo-link-token-refresh';
 import { getAccessToken, setAccessToken } from './accessToken';
 import { onError } from 'apollo-link-error';
+import { initializeIcons } from '@fluentui/font-icons-mdl2';
+initializeIcons();
 
 const cache = new InMemoryCache();
 

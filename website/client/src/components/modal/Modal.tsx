@@ -1,3 +1,4 @@
+import { Icon } from '@fluentui/react/lib/Icon';
 import { FunctionComponent } from 'react';
 import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
@@ -26,7 +27,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
         >
             <div className="modal-header">
                 <div className="modal-title">{headerText}</div>
-                <div className="close-modal" onClick={hide}>&times;</div>
+                <div className="close-modal" onClick={hide}><Icon iconName="ChromeClose" /></div>
             </div>
             <div className="modal-content">
                 {modalContent}
