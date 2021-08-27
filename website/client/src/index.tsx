@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
-import './index.css';
-import './style.css';
-import './global.css';
+import './styles/index.css';
+import './styles/style.css';
+import './styles/global.css';
 import App from './App';
 import { ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache, Observable } from '@apollo/client';
 import jwtDecode, { JwtPayload } from 'jwt-decode';

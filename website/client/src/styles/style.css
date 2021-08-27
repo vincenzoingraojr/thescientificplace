@@ -194,6 +194,24 @@ label {
     margin-top: 6px;
 }
 
+div.preloader-container {
+    display: grid;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0b0f10;
+    align-items: center;
+    justify-content: center;
+}
+
+div.preloader-container div.preloader {
+    display: block;
+    font-size: 15vh;
+    color: #039be5;
+}
+
 @media (max-width: 500px) {
     div.auth-container {
         grid-template-columns: repeat(1, 1fr);
