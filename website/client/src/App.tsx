@@ -20,6 +20,8 @@ function App() {
       setAccessToken(accessToken);
       if (accessToken) {
         setIsAuth(true);
+      } else {
+        setIsAuth(false);
       }
       setLoading(false);
     });

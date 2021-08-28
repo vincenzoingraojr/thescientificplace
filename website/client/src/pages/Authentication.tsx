@@ -4,6 +4,7 @@ import { Modal } from "../components/modal/Modal";
 import { useModal } from "../components/modal/useModal";
 import { MeDocument, MeQuery, useLoginMutation, useSignupMutation } from "../generated/graphql";
 import DatePicker from "react-datepicker";
+import { useHistory } from "react-router-dom";
 
 function Authentication() {
     const [login] = useLoginMutation();
@@ -17,6 +18,8 @@ function Authentication() {
     const [title, setTitle] = useState("");
     const [gender, setGender] = useState("");
     const [birthDate, setBirthDate] = useState(new Date());
+
+    const history = useHistory();
 
     const { isShown, toggle } = useModal();
 
@@ -53,6 +56,8 @@ function Authentication() {
                 if (response && response.data) {
                     setAccessToken(response.data.signup.accessToken!);
                 }
+
+                history.go(0);
             }}
         >
             <div className="margin-bottom-24">
@@ -162,6 +167,8 @@ function Authentication() {
                             if (response && response.data) {
                                 setAccessToken(response.data.login.accessToken!);
                             }
+
+                            history.go(0);
                         }}
                     >
                         <input type="text" placeholder="Username" className="margin-bottom-24" value={username} onChange={e => {
