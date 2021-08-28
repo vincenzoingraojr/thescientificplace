@@ -212,6 +212,68 @@ div.preloader-container div.preloader {
     color: #039be5;
 }
 
+div.page-container {
+    display: block;
+}
+
+div.left-sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 15%;
+    right: unset;
+    bottom: 0;
+    width: 20%;
+    overflow: auto;
+    padding-right: 24px;
+}
+
+div.main-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin-left: 35%;
+    margin-right: 15%;
+}
+
+div.main-feed, div.right-column {
+    display: block;
+}
+
+div.right-column {
+    padding-left: 24px;
+}
+
+div.main-feed div.main-header {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 35%;
+    right: 35%;
+    font-weight: 700;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: #0b0f10;
+}
+
+div.main-container div.main-feed div.main-feed-content-container {
+    display: block;
+    margin-top: 68px;
+}
+
+div.site-title-sidebar {
+    display: block;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+div.site-title-sidebar a {
+    font-weight: 700;
+    color: #039be5;
+    font-size: 22px;
+    text-transform: lowercase;
+    text-decoration: none;
+}
+
 @media (max-width: 500px) {
     div.auth-container {
         grid-template-columns: repeat(1, 1fr);
