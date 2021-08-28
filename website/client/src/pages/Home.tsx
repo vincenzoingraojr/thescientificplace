@@ -1,6 +1,7 @@
 import { Link, useHistory } from "react-router-dom";
 import { setAccessToken } from "../accessToken";
 import { useLogoutMutation } from "../generated/graphql";
+import { Icon } from '@fluentui/react/lib/Icon';
 
 
 function Home() {
@@ -15,6 +16,18 @@ function Home() {
                         The Scientific Place
                     </Link>
                 </div>
+                <nav className="nav-sidebar">
+                    <div className="nav-entry">
+                        <Link to="/home">
+                            <div className="nav-entry-icon">
+                                <Icon iconName="Home" />
+                            </div>
+                            <div className="nav-entry-name">
+                                Home
+                            </div>
+                        </Link>
+                    </div>
+                </nav>
                 <button
                     onClick={async () => {
                         await logout();
@@ -29,7 +42,8 @@ function Home() {
             </div>
             <div className="page-title">Home</div>
             <div className="fixed-searchbar">
-                <input type="text" placeholder="Search." />
+                <Icon iconName="Search" />
+                <input type="text" placeholder="Search, explore" />
             </div>
             <div className="main-container">
                 <div className="main-feed">
