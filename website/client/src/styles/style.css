@@ -264,12 +264,23 @@ div.site-title-sidebar {
     padding-bottom: 24px;
 }
 
+div.site-title-sidebar-circle {
+    display: none;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
 div.site-title-sidebar a {
     font-weight: 700;
     color: #039be5;
     font-size: 22px;
     text-transform: lowercase;
     text-decoration: none;
+}
+
+div.site-title-sidebar-circle a {
+    font-size: 28px;
+    color: #039be5;
 }
 
 div.main-container {
@@ -327,6 +338,10 @@ div.main-container div.main-feed, div.main-container div.right-sidebar {
     display: block;
 }
 
+div.main-feed {
+    padding-bottom: 40px;
+}
+
 div.right-sidebar {
     padding-left: 24px;
 }
@@ -351,6 +366,43 @@ div.right-sidebar {
 
     .modal-content {
         max-height: 75vh;
+    }
+
+    div.left-sidebar {
+        left: 24px;
+        width: 52px;
+    }
+
+    div.left-sidebar nav.nav-sidebar a div.nav-entry {
+        display: block;
+    }
+
+    div.left-sidebar nav.nav-sidebar a div.nav-entry div.nav-entry-icon {
+        padding-right: 0px;
+    }
+    
+    div.left-sidebar nav.nav-sidebar a div.nav-entry div.nav-entry-name, div.site-title-sidebar, div.fixed-searchbar {
+        display: none;
+    }
+
+    div.site-title-sidebar-circle {
+        display: block;
+    }
+
+    div.main-container {
+        display: block;
+        margin-top: 70.4px;
+        margin-left: 76px;
+        margin-right: 24px;
+    }
+
+    div.main-container div.right-sidebar {
+        display: none;
+    }
+
+    div.page-title {
+        left: 76px;
+        right: 0;
     }
 }
 

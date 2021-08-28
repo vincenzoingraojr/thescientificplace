@@ -1,11 +1,8 @@
 import { Icon } from '@fluentui/react/lib/Icon';
-import { Link, useHistory } from "react-router-dom";
-import { setAccessToken } from "../accessToken";
-import { useLogoutMutation, useMeQuery } from "../generated/graphql";
+import { Link } from "react-router-dom";
+import { useMeQuery } from "../generated/graphql";
 
 function Home() {
-    const [logout, { client }] = useLogoutMutation();
-    const history = useHistory();
     const { data } = useMeQuery({ fetchPolicy: "network-only" });
 
     return (
@@ -14,6 +11,11 @@ function Home() {
                 <div className="site-title-sidebar">
                     <Link to="/home">
                         The Scientific Place
+                    </Link>
+                </div>
+                <div className="site-title-sidebar-circle">
+                    <Link to="/home">
+                        <Icon iconName="FullCircleMask" />
                     </Link>
                 </div>
                 <nav className="nav-sidebar">
@@ -28,17 +30,6 @@ function Home() {
                         </div>
                     </Link>
                 </nav>
-                <button
-                    onClick={async () => {
-                        await logout();
-                        setAccessToken("");
-                        await client!.resetStore();
-                        history.go(0);
-                    }}
-                    className="logout"
-                >
-                    Log out
-                </button>
             </div>
             <div className="page-title">Home</div>
             <div className="fixed-searchbar">
