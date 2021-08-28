@@ -1,12 +1,12 @@
+import { Icon } from '@fluentui/react/lib/Icon';
 import { Link, useHistory } from "react-router-dom";
 import { setAccessToken } from "../accessToken";
-import { useLogoutMutation } from "../generated/graphql";
-import { Icon } from '@fluentui/react/lib/Icon';
-
+import { useLogoutMutation, useMeQuery } from "../generated/graphql";
 
 function Home() {
     const [logout, { client }] = useLogoutMutation();
     const history = useHistory();
+    const { data } = useMeQuery({ fetchPolicy: "network-only" });
 
     return (
         <div className="page-container">
@@ -17,16 +17,16 @@ function Home() {
                     </Link>
                 </div>
                 <nav className="nav-sidebar">
-                    <div className="nav-entry">
-                        <Link to="/home">
+                    <Link to="/home">
+                        <div className="nav-entry">
                             <div className="nav-entry-icon">
                                 <Icon iconName="Home" />
                             </div>
                             <div className="nav-entry-name">
                                 Home
                             </div>
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
                 </nav>
                 <button
                     onClick={async () => {
@@ -47,7 +47,7 @@ function Home() {
             </div>
             <div className="main-container">
                 <div className="main-feed">
-                   Home.
+                   Hello, {data?.me?.firstName}
                 </div>
                 <div className="right-sidebar">
                     Right sidebar.
