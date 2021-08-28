@@ -27,31 +27,16 @@ function Home() {
                     Log out
                 </button>
             </div>
+            <div className="page-title">Home</div>
+            <div className="fixed-searchbar">
+                <input type="text" placeholder="Search." />
+            </div>
             <div className="main-container">
                 <div className="main-feed">
-                    <div className="main-header">
-                        Home
-                    </div>
-                    <div className="main-feed-content-container">
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                        This place will be populated soon. <br />
-                    </div>
+                   Home.
                 </div>
-                <div className="right-column">
-                    Search.
+                <div className="right-sidebar">
+                    Right sidebar.
                 </div>
             </div>
         </div>
