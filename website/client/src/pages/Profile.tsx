@@ -1,18 +1,18 @@
 import Layout from "../components/Layout";
 import { useMeQuery } from "../generated/graphql";
 
-function Home() {
+function Profile() {
     const { data } = useMeQuery({ fetchPolicy: "network-only" });
 
-    const HomeContent = (
+    const Profile = (
         <>
-            Home. You are {data?.me?.firstName}
+            Hello, {data?.me?.firstName}
         </>
     );
 
     return (
-       <Layout content={HomeContent} />
+        <Layout content={Profile} />
     );
 }
 
-export default Home;
+export default Profile;
