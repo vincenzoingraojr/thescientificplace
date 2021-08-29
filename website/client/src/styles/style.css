@@ -216,6 +216,123 @@ div.page-container {
     display: block;
 }
 
+div.sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 10%;
+    right: unset;
+    bottom: 0;
+    width: 20%;
+    background-color: #0b0f10;
+    padding-right: 24px;
+    overflow: auto;
+}
+
+header.page-header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 30%;
+    right: 10%;
+    bottom: unset;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0b0f10;
+    height: 72.8px;
+}
+
+header.page-header div.page-title {
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+    width: 60%;
+}
+
+header.page-header div.search-bar {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    padding-left: 24px;
+}
+
+header.page-header div.search-bar i {
+    font-size: 20px;
+    color: #a9acb1;
+    position: absolute;
+    margin-left: 14px;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+header.page-header div.search-bar input[type="text"] {
+    font-size: 16px;
+    padding-top: 10px;
+    padding-left: 44px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+div.main-container {
+    display: grid;
+    margin-top: 72.8px;
+    margin-left: 30%;
+    margin-right: 10%;
+    grid-template-columns: 60% 40%;
+}
+
+div.main-feed, div.right-column {
+    display: block;
+}
+
+div.right-column {
+    padding-left: 24px;
+}
+
+div.site-title-sidebar {
+    display: block;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+div.site-title-sidebar a {
+    font-weight: 700;
+    font-size: 22px;
+    color: #039be5;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+nav.sidebar-nav {
+    display: block;
+    padding-bottom: 24px;
+}
+
+nav.sidebar-nav a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 24px;
+}
+
+nav.sidebar-nav a:last-child {
+    margin-bottom: 0px;
+}
+
+nav.sidebar-nav a div.sidebar-nav-entry {
+    display: flex;
+    align-items: center;
+}
+
+nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-icon {
+    display: block;
+    font-size: 28px;
+    padding-right: 12px;
+}
+
+nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-name {
+    display: block;
+}
+
 @media (max-width: 500px) {
     div.auth-container {
         grid-template-columns: repeat(1, 1fr);
