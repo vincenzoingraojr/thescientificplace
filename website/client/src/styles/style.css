@@ -240,6 +240,7 @@ header.page-header {
     justify-content: space-between;
     background-color: #0b0f10;
     height: 72.8px;
+    padding: 0;
 }
 
 header.page-header div.page-title {
@@ -293,6 +294,10 @@ div.site-title-sidebar {
     display: block;
     padding-top: 24px;
     padding-bottom: 24px;
+}
+
+div.site-title-sidebar-circle {
+    display: none;
 }
 
 div.site-title-sidebar a {
@@ -353,6 +358,62 @@ nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-name {
 
     .modal-content {
         max-height: 75vh;
+    }
+
+    div.site-title-sidebar {
+        display: none;
+    }
+
+    div.site-title-sidebar-circle {
+        display: block;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    div.site-title-sidebar-circle a {
+        font-size: 28px;
+        color: #039be5;
+    }
+
+    div.sidebar {
+        left: 24px;
+        width: 52px;
+    }
+
+    nav.sidebar-nav a div.sidebar-nav-entry {
+        display: block;
+    }
+    
+    nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-icon {
+        padding-right: 0px;
+    }
+    
+    nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-name {
+        display: none;
+    }
+
+    header.page-header {
+        left: 76px;
+        right: 0;
+        padding-right: 24px;
+    }
+
+    header.page-header div.page-title {
+        width: auto;
+    }
+    
+    header.page-header div.search-bar {
+        display: none;
+    }
+
+    div.main-container {
+        display: block;
+        margin-left: 76px;
+        margin-right: 24px;
+    }
+    
+    div.right-column {
+        display: none;
     }
 }
 

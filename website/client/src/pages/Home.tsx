@@ -13,6 +13,11 @@ function Home() {
                         The Scientific Place
                     </Link>
                 </div>
+                <div className="site-title-sidebar-circle">
+                    <Link to="/home">
+                        <Icon iconName="FullCircleMask" />
+                    </Link>
+                </div>
                 <nav className="sidebar-nav">
                     <Link to="/home">
                         <div className="sidebar-nav-entry">
