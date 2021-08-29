@@ -438,6 +438,77 @@ nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-name {
     .modal-content {
         max-height: 70vh;
     }
+
+    div.site-title-sidebar {
+        display: none;
+    }
+
+    div.site-title-sidebar-circle {
+        display: block;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    div.site-title-sidebar-circle a {
+        font-size: 28px;
+        color: #039be5;
+    }
+
+    div.sidebar {
+        left: 40px;
+        width: 68px;
+    }
+
+    nav.sidebar-nav a div.sidebar-nav-entry {
+        display: block;
+    }
+    
+    nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-icon {
+        padding-right: 0px;
+    }
+    
+    nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-name {
+        display: none;
+    }
+    
+    header.page-header {
+        left: 108px;
+    }
+
+    div.main-container {
+        margin-left: 108px;
+        margin-right: 40px;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 675px) {
+    header.page-header {
+        right: 0;
+        padding-right: 40px;
+    }
+
+    header.page-header div.page-title {
+        width: auto;
+    }
+    
+    header.page-header div.search-bar {
+        display: none;
+    }
+
+    div.main-container {
+        display: block;
+    }
+    
+    div.right-column {
+        display: none;
+    }
+}
+
+@media (min-width: 676px) and (max-width: 750px) {
+    header.page-header {
+        right: 40px;
+        padding: 0;
+    }
 }
 
 @media (min-width: 751px) and (max-width: 1000px) {
@@ -457,5 +528,19 @@ nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-name {
 
     .modal-content {
         max-height: 70vh;
+    }
+
+    div.sidebar {
+        left: 5%;
+    }
+
+    header.page-header {
+        left: 25%;
+        right: 5%;
+    }
+
+    div.main-container {
+        margin-left: 25%;
+        margin-right: 5%;
     }
 }
