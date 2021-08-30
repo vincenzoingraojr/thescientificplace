@@ -48,7 +48,7 @@ function Profile(props: any) {
                     onClick={async () => {
                         history.push("/logout");
                     }}
-                    className="logout margin-top-6"
+                    className="logout margin-top-24"
                 >
                     Log out
                 </button>
