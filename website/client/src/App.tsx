@@ -7,6 +7,7 @@ import Authentication from "./pages/Authentication";
 import Home from "./pages/Home";
 import { Icon } from '@fluentui/react/lib/Icon';
 import Profile from "./pages/Profile";
+import Logout from "./pages/Logout";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -44,6 +45,7 @@ function App() {
         <Switch>
           <IsNotAuthenticated exact path="/" isAuth={isAuth} component={Authentication} />
           <IsAuthenticated exact path="/home" isAuth={isAuth} component={Home} />
+          <IsAuthenticated exact path="/logout" isAuth={isAuth} component={Logout} />
           <Route exact path="/:username" render={(props) => <Profile {...props} />} />
           <Route path="*">
             <NoMatch />
