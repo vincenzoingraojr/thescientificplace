@@ -1,8 +1,16 @@
+import { useHistory } from "react-router-dom";
+import { setAccessToken } from "../accessToken";
 import Layout from "../components/Layout";
-import { useFindUserQuery } from "../generated/graphql";
+import { useFindUserQuery, useLogoutMutation, useMeQuery } from "../generated/graphql";
 
 function Profile(props: any) {
     const { username } = props.match.params;
+
+    const history = useHistory();
+
+    const { data: meData } = useMeQuery({ fetchPolicy: "network-only" });
+
+    const [logout, { client }] = useLogoutMutation();
 
     const { data, loading } = useFindUserQuery({ variables: { username: username }, fetchPolicy: "network-only" });
 
@@ -26,9 +34,37 @@ function Profile(props: any) {
         userFound = false;
     }
 
+    let me = false;
+
+    if (meData && meData.me && meData.me.username === data?.findUser?.username) {
+        me = true;
+    } else {
+        me = false;
+    }
+
+    console.log(meData);
+
+    if (meData?.me === null) {
+        history.push("/");
+    }
+
     const Profile = (
         <>
             Name: {data?.findUser?.firstName}
+            {me ? (
+                <button
+                    onClick={async () => {
+                        await logout();
+                        setAccessToken("");
+                        await client!.resetStore();
+
+                        history.go(0);
+                    }}
+                    className="logout margin-top-6"
+                >
+                    Log out
+                </button>
+            ) : null}
         </>
     );
 
