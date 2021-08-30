@@ -332,10 +332,20 @@ nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-icon {
     display: block;
     font-size: 28px;
     padding-right: 12px;
+    color: #fff;
+}
+
+nav.sidebar-nav a.nav-active div.sidebar-nav-entry div.nav-entry-icon {
+    color: #039be5;
 }
 
 nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-name {
     display: block;
+    color: #fff;
+}
+
+nav.sidebar-nav a.nav-active div.sidebar-nav-entry div.nav-entry-name {
+    color: #039be5;
 }
 
 div.logout-page {

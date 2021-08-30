@@ -1,6 +1,6 @@
 import { Icon } from "@fluentui/react/lib/Icon";
 import { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useMeQuery } from "../generated/graphql";
 
 export interface LayoutProps {
@@ -24,7 +24,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ title, content }) => {
                     </Link>
                 </div>
                 <nav className="sidebar-nav">
-                    <Link to="/home">
+                    <NavLink to="/home" activeClassName="nav-active">
                         <div className="sidebar-nav-entry">
                             <div className="nav-entry-icon">
                                 <Icon iconName="Home" />
@@ -33,8 +33,8 @@ const Layout: FunctionComponent<LayoutProps> = ({ title, content }) => {
                                 Home
                             </div>
                         </div>
-                    </Link>
-                    <Link to={`/${data?.me?.username}`}>
+                    </NavLink>
+                    <NavLink to={`/${data?.me?.username}`} activeClassName="nav-active">
                         <div className="sidebar-nav-entry">
                             <div className="nav-entry-icon">
                                 <Icon iconName="AccountManagement" />
@@ -43,7 +43,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ title, content }) => {
                                 Profile
                             </div>
                         </div>
-                    </Link>
+                    </NavLink>
                 </nav>
             </div>
             <header className="page-header">
