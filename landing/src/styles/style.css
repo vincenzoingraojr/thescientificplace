@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html {
+    font-family: 'Inter', sans-serif;
+    background-color: #0b0f10;
+    font-size: 18px;
+    color: #fff;
+}
+* {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+a {
+    font-weight: 700;
+    color: #039be5;
+    text-decoration: underline;
+}
+
+div.landing-container {
+    display: flex;
+    margin-top: 120px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-bottom: 120px;
+    justify-content: center;
+}
+
+div.landing-inner-container {
+    display: block;
+    padding: 24px;
+    background-color: #232730;
+    border-radius: 12px;
+    width: 40vw;
+}
+
+div.site-title {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 24px;
+    font-size: 22px;
+    color: #039be5;
+    text-transform: lowercase;
+}
+
+div.landing-content-text {
+    display: block;
+    color: #a9acb1;
+}
+
+form {
+    display: block;
+}
+
+input[type="text"], input[type="email"], textarea {
+    display: block;
+    font-family: inherit;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: #232730;
+    border: none;
+    border-bottom: 2px solid #039be5;
+    color: #a9acb1;
+    margin-bottom: 24px;
+}
+
+textarea {
+    resize: none;
+}
+
+label {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+button[type="submit"] {
+    display: block;
+    background-color: #039be5;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 700;
+    color: #fff;
+    font-size: inherit;
+    padding: 12.5px 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.margin-bottom-24 {
+    margin-bottom: 24px;
+}
+
+@media (max-width: 500px) {
+    div.landing-container {
+        margin-top: 24px;
+        margin-left: 24px;
+        margin-right: 24px;
+        padding-bottom: 24px;
+    }
+    
+    div.landing-inner-container {
+        width: auto;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 750px) {
+    div.landing-container {
+        margin-top: 40px;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding-bottom: 40px;
+    }
+    
+    div.landing-inner-container {
+        width: 75vw;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 1100px) {
+    div.landing-container {
+        margin-top: 40px;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-bottom: 40px;
+    }
+    
+    div.landing-inner-container {
+        width: 65vw;
+    }
+}
