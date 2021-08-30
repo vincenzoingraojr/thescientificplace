@@ -56,9 +56,8 @@ function Authentication() {
                 
                 if (response && response.data) {
                     setAccessToken(response.data.signup.accessToken!);
+                    history.go(0);
                 }
-
-                history.go(0);
             }}
         >
             <div className="margin-bottom-24">
@@ -166,11 +165,12 @@ function Authentication() {
                                 }
                             });
                             
-                            if (response && response.data) {
+                            if (response.data?.login.user) {
                                 setAccessToken(response.data.login.accessToken!);
+                                history.go(0);
+                            } else if (response.data?.login.errors) {
+                                console.log(response.data?.login.errors);
                             }
-
-                            history.go(0);
                         }}
                     >
                         <input type="text" placeholder="Username" className="margin-bottom-24" value={username} onChange={e => {
