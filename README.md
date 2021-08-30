@@ -8,6 +8,7 @@ Folder | Description
 [files](/files) | Project files
 [client](/client) | React.js front-end
 [server](/server) | Express back-end
+[landing](/landing) | Landing page
 
 ## What is The Scientific Place?
 The Scientific Place is a social network dedicated to scientists and those who love science.
