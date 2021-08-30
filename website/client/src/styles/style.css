@@ -338,6 +338,51 @@ nav.sidebar-nav a div.sidebar-nav-entry div.nav-entry-name {
     display: block;
 }
 
+div.logout-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+div.logout-page div.logout-content-container {
+    display: block;
+    padding: 24px;
+    background-color: #232730;
+    border-radius: 12px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+div.logout-page div.logout-content-header {
+    display: block;
+    font-weight: 700;
+    font-size: 22px;
+    color: #039be5;
+    text-transform: lowercase;
+    margin-bottom: 24px;
+}
+
+div.logout-page div.logout-content {
+    display: block;
+}
+
+div.logout-page div.logout-content div.logout-content-text {
+    display: block;
+    margin-bottom: 24px;
+}
+
+div.go-back {
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+    cursor: pointer;
+}
+
+div.go-back i {
+    margin-right: 12px;
+}
+
 @media (max-width: 500px) {
     div.auth-container {
         grid-template-columns: repeat(1, 1fr);
