@@ -1,17 +1,45 @@
 import Layout from "../components/Layout";
-import { useMeQuery } from "../generated/graphql";
+import { useFindUserQuery } from "../generated/graphql";
 
-function Profile() {
-    const { data } = useMeQuery({ fetchPolicy: "network-only" });
+function Profile(props: any) {
+    const { username } = props.match.params;
+
+    const { data, loading } = useFindUserQuery({ variables: { username: username }, fetchPolicy: "network-only" });
+
+    const Loading = (
+        <>
+            Loading...
+        </>
+    );
+
+    if (loading) {
+        return (
+            <Layout title="Profile" content={Loading} />
+        );
+    }
+    
+    let userFound = false;
+
+    if (data && data.findUser?.username) {
+        userFound = true;
+    } else {
+        userFound = false;
+    }
 
     const Profile = (
         <>
-            Hello, {data?.me?.firstName}
+            Name: {data?.findUser?.firstName}
+        </>
+    );
+
+    const UserNotFound = (
+        <>
+            This user does not exist.
         </>
     );
 
     return (
-        <Layout content={Profile} />
+        <Layout title="Profile" content={userFound ? Profile : UserNotFound} />
     );
 }
 

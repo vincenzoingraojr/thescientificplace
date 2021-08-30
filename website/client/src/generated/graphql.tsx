@@ -56,7 +56,13 @@ export type MutationRevokeRefreshTokensForUserArgs = {
 
 export type Query = {
   __typename?: 'Query';
+  findUser?: Maybe<User>;
   me?: Maybe<User>;
+};
+
+
+export type QueryFindUserArgs = {
+  username: Scalars['String'];
 };
 
 export type User = {
@@ -77,6 +83,13 @@ export type UserResponse = {
   user?: Maybe<User>;
   accessToken?: Maybe<Scalars['String']>;
 };
+
+export type FindUserQueryVariables = Exact<{
+  username: Scalars['String'];
+}>;
+
+
+export type FindUserQuery = { __typename?: 'Query', findUser?: Maybe<{ __typename?: 'User', username: string, firstName: string, lastName: string, email: string, id: number, birthDate: string, gender: string, title: string }> };
 
 export type LoginMutationVariables = Exact<{
   username: Scalars['String'];
@@ -111,6 +124,48 @@ export type SignupMutationVariables = Exact<{
 export type SignupMutation = { __typename?: 'Mutation', signup: { __typename?: 'UserResponse', accessToken?: Maybe<string>, user?: Maybe<{ __typename?: 'User', username: string, firstName: string, lastName: string, email: string, id: number, birthDate: string, gender: string, title: string }>, errors?: Maybe<Array<{ __typename?: 'FieldError', field: string, message: string }>> } };
 
 
+export const FindUserDocument = gql`
+    query findUser($username: String!) {
+  findUser(username: $username) {
+    username
+    firstName
+    lastName
+    email
+    id
+    birthDate
+    gender
+    title
+  }
+}
+    `;
+
+/**
+ * __useFindUserQuery__
+ *
+ * To run a query within a React component, call `useFindUserQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFindUserQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFindUserQuery({
+ *   variables: {
+ *      username: // value for 'username'
+ *   },
+ * });
+ */
+export function useFindUserQuery(baseOptions: Apollo.QueryHookOptions<FindUserQuery, FindUserQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<FindUserQuery, FindUserQueryVariables>(FindUserDocument, options);
+      }
+export function useFindUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FindUserQuery, FindUserQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<FindUserQuery, FindUserQueryVariables>(FindUserDocument, options);
+        }
+export type FindUserQueryHookResult = ReturnType<typeof useFindUserQuery>;
+export type FindUserLazyQueryHookResult = ReturnType<typeof useFindUserLazyQuery>;
+export type FindUserQueryResult = Apollo.QueryResult<FindUserQuery, FindUserQueryVariables>;
 export const LoginDocument = gql`
     mutation Login($username: String!, $password: String!) {
   login(username: $username, password: $password) {

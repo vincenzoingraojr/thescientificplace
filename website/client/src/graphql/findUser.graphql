@@ -1,0 +1,12 @@
+query findUser($username: String!) {
+    findUser(username: $username) {
+        username
+        firstName
+        lastName
+        email
+        id
+        birthDate
+        gender
+        title
+    }
+}

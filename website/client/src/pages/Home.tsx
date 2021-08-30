@@ -11,7 +11,7 @@ function Home() {
     );
 
     return (
-       <Layout content={HomeContent} />
+       <Layout title="Home" content={HomeContent} />
     );
 }
 

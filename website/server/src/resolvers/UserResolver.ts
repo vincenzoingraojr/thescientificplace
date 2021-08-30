@@ -31,6 +31,13 @@ class UserResponse {
 @Resolver(User)
 export class UserResolver {
   @Query(() => User, { nullable: true })
+  findUser(@Arg("username") username: string) {
+    return (
+      User.findOne({ where: { username }})
+    );
+  }
+
+  @Query(() => User, { nullable: true })
   me(@Ctx() context: MyContext) {
     const authorization = context.req.headers["authorization"];
 
