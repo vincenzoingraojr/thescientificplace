@@ -1,3 +1,4 @@
+import Head from "../components/Head";
 import Layout from "../components/Layout";
 import { useMeQuery } from "../generated/graphql";
 
@@ -6,6 +7,7 @@ function Home() {
 
     const HomeContent = (
         <>
+            <Head title="The Scientific Place | Home" />
             Home. You are {data?.me?.firstName}
         </>
     );

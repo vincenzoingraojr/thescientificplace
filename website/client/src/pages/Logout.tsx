@@ -1,6 +1,7 @@
 import { Icon } from "@fluentui/react/lib/Icon";
 import { useHistory } from "react-router-dom";
 import { setAccessToken } from "../accessToken";
+import Head from "../components/Head";
 import { useLogoutMutation, useMeQuery } from "../generated/graphql";
 
 function Logout() {
@@ -12,6 +13,7 @@ function Logout() {
     
     return (
         <div className="logout-page">
+            <Head title="Logout | The Scientific Place" />
             <div className="logout-content-container">
                 <div className="logout-content-header">
                     The Scientific Place

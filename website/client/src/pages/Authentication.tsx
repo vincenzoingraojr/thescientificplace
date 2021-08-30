@@ -5,6 +5,7 @@ import { useModal } from "../components/modal/useModal";
 import { MeDocument, MeQuery, useLoginMutation, useSignupMutation } from "../generated/graphql";
 import DatePicker from "react-datepicker";
 import { useHistory } from "react-router-dom";
+import Head from "../components/Head";
 
 function Authentication() {
     const [login] = useLoginMutation();
@@ -131,6 +132,7 @@ function Authentication() {
 
     return (
         <>
+            <Head title="The Scientific Place" />
             <div className="auth-container">
                 <div className="container-item">
                     <div className="site-title">

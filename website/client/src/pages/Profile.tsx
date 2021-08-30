@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import Head from "../components/Head";
 import Layout from "../components/Layout";
 import { useFindUserQuery, useMeQuery } from "../generated/graphql";
 
@@ -62,7 +63,10 @@ function Profile(props: any) {
     );
 
     return (
-        <Layout title="Profile" content={userFound ? Profile : UserNotFound} />
+        <>
+            <Head title={userFound ? `${data?.findUser?.firstName} ${data?.findUser?.lastName} | The Scientific Place` : `@${username} | User not found`} />
+            <Layout title="Profile" content={userFound ? Profile : UserNotFound} />
+        </>
     );
 }
 
