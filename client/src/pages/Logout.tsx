@@ -10,6 +10,16 @@ function Logout() {
     const { data } = useMeQuery({ fetchPolicy: "network-only" });
 
     const history = useHistory();
+
+    if (!data?.me) {
+        return (
+            <div className="preloader-container">
+                <div className="preloader">
+                <Icon iconName="FullCircleMask" />
+                </div>
+            </div>
+        );
+    }
     
     return (
         <div className="logout-page">
