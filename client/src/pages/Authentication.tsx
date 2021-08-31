@@ -54,9 +54,11 @@ function Authentication() {
                     }
                 });
                 
-                if (response && response.data) {
+                if (response.data?.signup.user) {
                     setAccessToken(response.data.signup.accessToken!);
                     history.go(0);
+                } else if (response.data?.signup.errors) {
+                    console.log(response.data?.signup.errors);
                 }
             }}
         >
