@@ -516,6 +516,7 @@ div.go-back i {
     div.sidebar {
         left: 40px;
         width: 68px;
+        padding-right: 40px;
     }
 
     nav.sidebar-nav a div.sidebar-nav-entry {

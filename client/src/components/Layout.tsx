@@ -34,16 +34,18 @@ const Layout: FunctionComponent<LayoutProps> = ({ title, content }) => {
                             </div>
                         </div>
                     </NavLink>
-                    <NavLink to={`/${data?.me?.username}`} activeClassName="nav-active">
-                        <div className="sidebar-nav-entry">
-                            <div className="nav-entry-icon">
-                                <Icon iconName="AccountManagement" />
+                    {data && data.me ? (
+                        <NavLink to={`/${data?.me?.username}`} activeClassName="nav-active">
+                            <div className="sidebar-nav-entry">
+                                <div className="nav-entry-icon">
+                                    <Icon iconName="AccountManagement" />
+                                </div>
+                                <div className="nav-entry-name">
+                                    Profile
+                                </div>
                             </div>
-                            <div className="nav-entry-name">
-                                Profile
-                            </div>
-                        </div>
-                    </NavLink>
+                        </NavLink>
+                    ) : null}
                 </nav>
             </div>
             <header className="page-header">
