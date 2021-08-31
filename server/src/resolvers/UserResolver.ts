@@ -197,7 +197,7 @@ export class UserResolver {
         ]
       };
     }
-    if (title == "Title") {
+    if (title == "Title" || title == "") {
       return {
         errors: [
           {
@@ -207,7 +207,7 @@ export class UserResolver {
         ]
       };
     }
-    if (gender == "Gender") {
+    if (gender == "Gender" || gender == "") {
       return {
         errors: [
           {

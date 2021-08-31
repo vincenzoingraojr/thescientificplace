@@ -22,6 +22,9 @@ function Authentication() {
     const [gender, setGender] = useState("");
     const [birthDate, setBirthDate] = useState(new Date());
 
+    const [signupUsername, setSignupUsername] = useState("");
+    const [signupPassword, setSignupPassword] = useState("");
+
     const history = useHistory();
 
     const { isShown, toggle } = useModal();
@@ -36,10 +39,10 @@ function Authentication() {
                         birthDate,
                         gender,
                         title,
-                        password,
+                        password: signupPassword,
                         lastName,
                         firstName,
-                        username,
+                        username: signupUsername,
                         email,
                     },
                     update: (store, { data }) => {
@@ -60,7 +63,47 @@ function Authentication() {
                     setAccessToken(response.data.signup.accessToken!);
                     history.go(0);
                 } else if (response.data?.signup.errors) {
-                    console.log(response.data?.signup.errors);
+                    if (response.data.signup.errors[0].field === "title") {
+                        ReactDOM.render(<ErrorField error={response.data.signup.errors[0].message} />, document.getElementById("signup-title-error"));
+                    } else {
+                        ReactDOM.render(<div></div>, document.getElementById("signup-title-error"));
+                    }
+
+                    if (response.data.signup.errors[0].field === "gender") {
+                        ReactDOM.render(<ErrorField error={response.data.signup.errors[0].message} />, document.getElementById("signup-gender-error"));
+                    } else {
+                        ReactDOM.render(<div></div>, document.getElementById("signup-gender-error"));
+                    }
+
+                    if (response.data.signup.errors[0].field === "firstName") {
+                        ReactDOM.render(<ErrorField error={response.data.signup.errors[0].message} />, document.getElementById("signup-firstname-error"));
+                    } else {
+                        ReactDOM.render(<div></div>, document.getElementById("signup-firstname-error"));
+                    }
+
+                    if (response.data.signup.errors[0].field === "lastName") {
+                        ReactDOM.render(<ErrorField error={response.data.signup.errors[0].message} />, document.getElementById("signup-lastname-error"));
+                    } else {
+                        ReactDOM.render(<div></div>, document.getElementById("signup-lastname-error"));
+                    }
+
+                    if (response.data.signup.errors[0].field === "email") {
+                        ReactDOM.render(<ErrorField error={response.data.signup.errors[0].message} />, document.getElementById("signup-email-error"));
+                    } else {
+                        ReactDOM.render(<div></div>, document.getElementById("signup-email-error"));
+                    }
+
+                    if (response.data.signup.errors[0].field === "username") {
+                        ReactDOM.render(<ErrorField error={response.data.signup.errors[0].message} />, document.getElementById("signup-username-error"));
+                    } else {
+                        ReactDOM.render(<div></div>, document.getElementById("signup-username-error"));
+                    }
+
+                    if (response.data.signup.errors[0].field === "password") {
+                        ReactDOM.render(<ErrorField error={response.data.signup.errors[0].message} />, document.getElementById("signup-password-error"));
+                    } else {
+                        ReactDOM.render(<div></div>, document.getElementById("signup-password-error"));
+                    }
                 }
             }}
         >
@@ -80,6 +123,8 @@ function Authentication() {
                 showYearDropdown
                 dropdownMode="select"
             />
+            <div id="signup-title-error"></div>
+            <div id="signup-gender-error"></div>
             <div className="input-grid margin-bottom-24">
                 <div className="input-grid-item">
                     <select
@@ -108,6 +153,8 @@ function Authentication() {
                     </select>
                 </div>
             </div>
+            <div id="signup-firstname-error"></div>
+            <div id="signup-lastname-error"></div>
             <div className="input-grid margin-bottom-24">
                 <div className="input-grid-item">
                     <input type="text" placeholder="First name" value={firstName} onChange={e => {
@@ -120,14 +167,17 @@ function Authentication() {
                     }} />
                 </div>
             </div>
+            <div id="signup-email-error"></div>
             <input type="email" placeholder="Email" className="margin-bottom-24" value={email} onChange={e => {
                 setEmail(e.target.value);
             }} />
-            <input type="text" placeholder="Username" className="margin-bottom-24" value={username} onChange={e => {
-                setUsername(e.target.value);
+            <div id="signup-username-error"></div>
+            <input type="text" placeholder="Username" className="margin-bottom-24" value={signupUsername} onChange={e => {
+                setSignupUsername(e.target.value);
             }} />
-            <input type="password" placeholder="Password" className="margin-bottom-24" value={password} onChange={e => {
-                setPassword(e.target.value);
+            <div id="signup-password-error"></div>
+            <input type="password" placeholder="Password" className="margin-bottom-24" value={signupPassword} onChange={e => {
+                setSignupPassword(e.target.value);
             }} />
             <button className="signup" type="submit">Sign up</button>
         </form>
