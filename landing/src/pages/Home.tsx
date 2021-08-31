@@ -10,7 +10,7 @@ function Home() {
                     <br />
                     You can also contact me by filling out the form below.
                 </div>
-                <form name="contact" data-netlify="true" action="/response">
+                <form name="contact" method="POST" data-netlify="true" action="/response">
                     <input type="hidden" name="form-name" value="contact" />
                     <label htmlFor="name">Name</label>
                     <input type="text" id="name" name="name" />
