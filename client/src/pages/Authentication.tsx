@@ -6,6 +6,8 @@ import { MeDocument, MeQuery, useLoginMutation, useSignupMutation } from "../gen
 import DatePicker from "react-datepicker";
 import { useHistory } from "react-router-dom";
 import Head from "../components/Head";
+import ErrorField from "../components/ErrorField";
+import ReactDOM from "react-dom";
 
 function Authentication() {
     const [login] = useLoginMutation();
@@ -171,13 +173,25 @@ function Authentication() {
                                 setAccessToken(response.data.login.accessToken!);
                                 history.go(0);
                             } else if (response.data?.login.errors) {
-                                console.log(response.data?.login.errors);
+                                if (response.data.login.errors[0].field === "username") {
+                                    ReactDOM.render(<ErrorField error={response.data.login.errors[0].message} />, document.getElementById("login-username-error"));
+                                } else {
+                                    ReactDOM.render(<div></div>, document.getElementById("login-username-error"));
+                                }
+
+                                if (response.data.login.errors[0].field === "password") {
+                                    ReactDOM.render(<ErrorField error={response.data.login.errors[0].message} />, document.getElementById("login-password-error"));
+                                } else {
+                                    ReactDOM.render(<div></div>, document.getElementById("login-password-error"));
+                                }
                             }
                         }}
                     >
+                        <div id="login-username-error"></div>
                         <input type="text" placeholder="Username" className="margin-bottom-24" value={username} onChange={e => {
                             setUsername(e.target.value);
                         }} />
+                        <div id="login-password-error"></div>
                         <input type="password" placeholder="Password" className="margin-bottom-24" value={password} onChange={e => {
                             setPassword(e.target.value);
                         }} />
