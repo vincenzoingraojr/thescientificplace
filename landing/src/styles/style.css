@@ -54,49 +54,6 @@ div.landing-content-text {
     color: #a9acb1;
 }
 
-form {
-    display: block;
-}
-
-input[type="text"], input[type="email"], textarea {
-    display: block;
-    font-family: inherit;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 100%;
-    background-color: #232730;
-    border: none;
-    border-bottom: 2px solid #039be5;
-    color: #a9acb1;
-    margin-bottom: 24px;
-}
-
-textarea {
-    resize: none;
-}
-
-label {
-    font-weight: 700;
-    font-size: 14px;
-}
-
-button[type="submit"] {
-    display: block;
-    background-color: #039be5;
-    border-radius: 12px;
-    font-family: inherit;
-    font-weight: 700;
-    color: #fff;
-    font-size: inherit;
-    padding: 12.5px 25px;
-    border: none;
-    cursor: pointer;
-}
-
-.margin-bottom-24 {
-    margin-bottom: 24px;
-}
-
 @media (max-width: 500px) {
     div.landing-container {
         margin-top: 24px;
